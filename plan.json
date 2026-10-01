@@ -1,0 +1,1354 @@
+{
+  "generated_at": "2026-10-01T09:17:20",
+  "semesters": [
+    {
+      "period_id": 797,
+      "name": "Wintersemester 2026/27",
+      "entries": [
+        {
+          "state": "selected",
+          "unit_id": 4793,
+          "group_idx": 1,
+          "number": "INF-10615",
+          "title": "Geographic information systems",
+          "course_type": "Vorlesung",
+          "group_name": "Geographic information systems",
+          "lecturers": [
+            "Prof. Dr. Daniel Keim",
+            "Dr. Maximilian Fischer"
+          ],
+          "appointments": [
+            {
+              "rhythm": "wöchentlich",
+              "start": "13:30",
+              "end": "15:00",
+              "first": "2026-10-20",
+              "last": "2027-02-02",
+              "room": "ZT1202",
+              "lecturers": [
+                "Dr. Maximilian Fischer"
+              ],
+              "status": "exact",
+              "note": "in ZT1204 (Data Theatre)",
+              "weekday": "Di",
+              "cancelled": [
+                "2026-12-29",
+                "2027-01-05"
+              ]
+            }
+          ],
+          "dates": [
+            {
+              "date": "2026-10-20",
+              "start": "13:30",
+              "end": "15:00",
+              "room": "ZT1202"
+            },
+            {
+              "date": "2026-10-27",
+              "start": "13:30",
+              "end": "15:00",
+              "room": "ZT1202"
+            },
+            {
+              "date": "2026-11-03",
+              "start": "13:30",
+              "end": "15:00",
+              "room": "ZT1202"
+            },
+            {
+              "date": "2026-11-10",
+              "start": "13:30",
+              "end": "15:00",
+              "room": "ZT1202"
+            },
+            {
+              "date": "2026-11-17",
+              "start": "13:30",
+              "end": "15:00",
+              "room": "ZT1202"
+            },
+            {
+              "date": "2026-11-24",
+              "start": "13:30",
+              "end": "15:00",
+              "room": "ZT1202"
+            },
+            {
+              "date": "2026-12-01",
+              "start": "13:30",
+              "end": "15:00",
+              "room": "ZT1202"
+            },
+            {
+              "date": "2026-12-08",
+              "start": "13:30",
+              "end": "15:00",
+              "room": "ZT1202"
+            },
+            {
+              "date": "2026-12-15",
+              "start": "13:30",
+              "end": "15:00",
+              "room": "ZT1202"
+            },
+            {
+              "date": "2026-12-22",
+              "start": "13:30",
+              "end": "15:00",
+              "room": "ZT1202"
+            },
+            {
+              "date": "2027-01-12",
+              "start": "13:30",
+              "end": "15:00",
+              "room": "ZT1202"
+            },
+            {
+              "date": "2027-01-19",
+              "start": "13:30",
+              "end": "15:00",
+              "room": "ZT1202"
+            },
+            {
+              "date": "2027-01-26",
+              "start": "13:30",
+              "end": "15:00",
+              "room": "ZT1202"
+            },
+            {
+              "date": "2027-02-02",
+              "start": "13:30",
+              "end": "15:00",
+              "room": "ZT1202"
+            }
+          ]
+        },
+        {
+          "state": "selected",
+          "unit_id": 6920,
+          "group_idx": 1,
+          "number": "INF-15900",
+          "title": "Geographic information systems (exercise)",
+          "course_type": "Übung",
+          "group_name": "Geographic information systems (exercise) (1. Parallelgruppe)",
+          "lecturers": [
+            "Prof. Dr. Daniel Keim",
+            "Dr. Maximilian Fischer"
+          ],
+          "appointments": [
+            {
+              "rhythm": "wöchentlich",
+              "start": "17:00",
+              "end": "18:30",
+              "first": "2026-10-22",
+              "last": "2027-02-04",
+              "room": "ZT1202",
+              "lecturers": [],
+              "status": "exact",
+              "note": "",
+              "weekday": "Do",
+              "cancelled": [
+                "2026-12-24",
+                "2026-12-31"
+              ]
+            }
+          ],
+          "dates": [
+            {
+              "date": "2026-10-22",
+              "start": "17:00",
+              "end": "18:30",
+              "room": "ZT1202"
+            },
+            {
+              "date": "2026-10-29",
+              "start": "17:00",
+              "end": "18:30",
+              "room": "ZT1202"
+            },
+            {
+              "date": "2026-11-05",
+              "start": "17:00",
+              "end": "18:30",
+              "room": "ZT1202"
+            },
+            {
+              "date": "2026-11-12",
+              "start": "17:00",
+              "end": "18:30",
+              "room": "ZT1202"
+            },
+            {
+              "date": "2026-11-19",
+              "start": "17:00",
+              "end": "18:30",
+              "room": "ZT1202"
+            },
+            {
+              "date": "2026-11-26",
+              "start": "17:00",
+              "end": "18:30",
+              "room": "ZT1202"
+            },
+            {
+              "date": "2026-12-03",
+              "start": "17:00",
+              "end": "18:30",
+              "room": "ZT1202"
+            },
+            {
+              "date": "2026-12-10",
+              "start": "17:00",
+              "end": "18:30",
+              "room": "ZT1202"
+            },
+            {
+              "date": "2026-12-17",
+              "start": "17:00",
+              "end": "18:30",
+              "room": "ZT1202"
+            },
+            {
+              "date": "2027-01-07",
+              "start": "17:00",
+              "end": "18:30",
+              "room": "ZT1202"
+            },
+            {
+              "date": "2027-01-14",
+              "start": "17:00",
+              "end": "18:30",
+              "room": "ZT1202"
+            },
+            {
+              "date": "2027-01-21",
+              "start": "17:00",
+              "end": "18:30",
+              "room": "ZT1202"
+            },
+            {
+              "date": "2027-01-28",
+              "start": "17:00",
+              "end": "18:30",
+              "room": "ZT1202"
+            },
+            {
+              "date": "2027-02-04",
+              "start": "17:00",
+              "end": "18:30",
+              "room": "ZT1202"
+            }
+          ]
+        },
+        {
+          "state": "selected",
+          "unit_id": 18550,
+          "group_idx": 1,
+          "number": "INF-16110",
+          "title": "Randomized algorithms (exercise)",
+          "course_type": "Übung",
+          "group_name": "Randomized algorithms (exercise)",
+          "lecturers": [
+            "Prof. Dr. Sabine Storandt"
+          ],
+          "appointments": [
+            {
+              "rhythm": "wöchentlich",
+              "start": "11:45",
+              "end": "13:15",
+              "first": "2026-10-21",
+              "last": "2027-02-03",
+              "room": "F425",
+              "lecturers": [],
+              "status": "exact",
+              "note": "",
+              "weekday": "Mi",
+              "cancelled": [
+                "2026-12-23",
+                "2026-12-30",
+                "2027-01-06"
+              ]
+            }
+          ],
+          "dates": [
+            {
+              "date": "2026-10-21",
+              "start": "11:45",
+              "end": "13:15",
+              "room": "F425"
+            },
+            {
+              "date": "2026-10-28",
+              "start": "11:45",
+              "end": "13:15",
+              "room": "F425"
+            },
+            {
+              "date": "2026-11-04",
+              "start": "11:45",
+              "end": "13:15",
+              "room": "F425"
+            },
+            {
+              "date": "2026-11-11",
+              "start": "11:45",
+              "end": "13:15",
+              "room": "F425"
+            },
+            {
+              "date": "2026-11-18",
+              "start": "11:45",
+              "end": "13:15",
+              "room": "F425"
+            },
+            {
+              "date": "2026-11-25",
+              "start": "11:45",
+              "end": "13:15",
+              "room": "F425"
+            },
+            {
+              "date": "2026-12-02",
+              "start": "11:45",
+              "end": "13:15",
+              "room": "F425"
+            },
+            {
+              "date": "2026-12-09",
+              "start": "11:45",
+              "end": "13:15",
+              "room": "F425"
+            },
+            {
+              "date": "2026-12-16",
+              "start": "11:45",
+              "end": "13:15",
+              "room": "F425"
+            },
+            {
+              "date": "2027-01-13",
+              "start": "11:45",
+              "end": "13:15",
+              "room": "F425"
+            },
+            {
+              "date": "2027-01-20",
+              "start": "11:45",
+              "end": "13:15",
+              "room": "F425"
+            },
+            {
+              "date": "2027-01-27",
+              "start": "11:45",
+              "end": "13:15",
+              "room": "F425"
+            },
+            {
+              "date": "2027-02-03",
+              "start": "11:45",
+              "end": "13:15",
+              "room": "F425"
+            }
+          ]
+        },
+        {
+          "state": "selected",
+          "unit_id": 18551,
+          "group_idx": 1,
+          "number": "INF-21480",
+          "title": "Randomized algorithms",
+          "course_type": "Vorlesung",
+          "group_name": "Randomized algorithms",
+          "lecturers": [
+            "Prof. Dr. Sabine Storandt"
+          ],
+          "appointments": [
+            {
+              "rhythm": "nach Vereinbarung",
+              "start": "",
+              "end": "",
+              "first": "",
+              "last": "",
+              "room": "",
+              "lecturers": [],
+              "status": "unknown",
+              "note": "digital self learning material",
+              "weekday": "",
+              "cancelled": []
+            }
+          ],
+          "dates": []
+        },
+        {
+          "state": "selected",
+          "unit_id": 83923,
+          "group_idx": 1,
+          "number": "INF-14550",
+          "title": "Algorithm engineering",
+          "course_type": "Vorlesung",
+          "group_name": "Algorithm engineering",
+          "lecturers": [
+            "Prof. Dr. Sabine Storandt"
+          ],
+          "appointments": [
+            {
+              "rhythm": "nach Vereinbarung",
+              "start": "",
+              "end": "",
+              "first": "",
+              "last": "",
+              "room": "",
+              "lecturers": [],
+              "status": "unknown",
+              "note": "digital self learning material",
+              "weekday": "",
+              "cancelled": []
+            }
+          ],
+          "dates": []
+        },
+        {
+          "state": "selected",
+          "unit_id": 92272,
+          "group_idx": 1,
+          "number": "INF-14890",
+          "title": "Advanced verification of software and systems",
+          "course_type": "Vorlesung",
+          "group_name": "Advanced verification of software and systems",
+          "lecturers": [
+            "Prof. Dr. Stefan Leue"
+          ],
+          "appointments": [
+            {
+              "rhythm": "wöchentlich",
+              "start": "10:00",
+              "end": "11:30",
+              "first": "2026-10-20",
+              "last": "2027-02-02",
+              "room": "PZ901",
+              "lecturers": [
+                "Prof. Dr. Stefan Leue"
+              ],
+              "status": "exact",
+              "note": "",
+              "weekday": "Di",
+              "cancelled": [
+                "2026-12-29",
+                "2027-01-05"
+              ]
+            },
+            {
+              "rhythm": "wöchentlich",
+              "start": "13:30",
+              "end": "15:00",
+              "first": "2026-10-22",
+              "last": "2027-02-04",
+              "room": "PZ901",
+              "lecturers": [
+                "Prof. Dr. Stefan Leue"
+              ],
+              "status": "exact",
+              "note": "",
+              "weekday": "Do",
+              "cancelled": [
+                "2026-12-24",
+                "2026-12-31"
+              ]
+            }
+          ],
+          "dates": [
+            {
+              "date": "2026-10-20",
+              "start": "10:00",
+              "end": "11:30",
+              "room": "PZ901"
+            },
+            {
+              "date": "2026-10-22",
+              "start": "13:30",
+              "end": "15:00",
+              "room": "PZ901"
+            },
+            {
+              "date": "2026-10-27",
+              "start": "10:00",
+              "end": "11:30",
+              "room": "PZ901"
+            },
+            {
+              "date": "2026-10-29",
+              "start": "13:30",
+              "end": "15:00",
+              "room": "PZ901"
+            },
+            {
+              "date": "2026-11-03",
+              "start": "10:00",
+              "end": "11:30",
+              "room": "PZ901"
+            },
+            {
+              "date": "2026-11-05",
+              "start": "13:30",
+              "end": "15:00",
+              "room": "PZ901"
+            },
+            {
+              "date": "2026-11-10",
+              "start": "10:00",
+              "end": "11:30",
+              "room": "PZ901"
+            },
+            {
+              "date": "2026-11-12",
+              "start": "13:30",
+              "end": "15:00",
+              "room": "PZ901"
+            },
+            {
+              "date": "2026-11-17",
+              "start": "10:00",
+              "end": "11:30",
+              "room": "PZ901"
+            },
+            {
+              "date": "2026-11-19",
+              "start": "13:30",
+              "end": "15:00",
+              "room": "PZ901"
+            },
+            {
+              "date": "2026-11-24",
+              "start": "10:00",
+              "end": "11:30",
+              "room": "PZ901"
+            },
+            {
+              "date": "2026-11-26",
+              "start": "13:30",
+              "end": "15:00",
+              "room": "PZ901"
+            },
+            {
+              "date": "2026-12-01",
+              "start": "10:00",
+              "end": "11:30",
+              "room": "PZ901"
+            },
+            {
+              "date": "2026-12-03",
+              "start": "13:30",
+              "end": "15:00",
+              "room": "PZ901"
+            },
+            {
+              "date": "2026-12-08",
+              "start": "10:00",
+              "end": "11:30",
+              "room": "PZ901"
+            },
+            {
+              "date": "2026-12-10",
+              "start": "13:30",
+              "end": "15:00",
+              "room": "PZ901"
+            },
+            {
+              "date": "2026-12-15",
+              "start": "10:00",
+              "end": "11:30",
+              "room": "PZ901"
+            },
+            {
+              "date": "2026-12-17",
+              "start": "13:30",
+              "end": "15:00",
+              "room": "PZ901"
+            },
+            {
+              "date": "2026-12-22",
+              "start": "10:00",
+              "end": "11:30",
+              "room": "PZ901"
+            },
+            {
+              "date": "2027-01-07",
+              "start": "13:30",
+              "end": "15:00",
+              "room": "PZ901"
+            },
+            {
+              "date": "2027-01-12",
+              "start": "10:00",
+              "end": "11:30",
+              "room": "PZ901"
+            },
+            {
+              "date": "2027-01-14",
+              "start": "13:30",
+              "end": "15:00",
+              "room": "PZ901"
+            },
+            {
+              "date": "2027-01-19",
+              "start": "10:00",
+              "end": "11:30",
+              "room": "PZ901"
+            },
+            {
+              "date": "2027-01-21",
+              "start": "13:30",
+              "end": "15:00",
+              "room": "PZ901"
+            },
+            {
+              "date": "2027-01-26",
+              "start": "10:00",
+              "end": "11:30",
+              "room": "PZ901"
+            },
+            {
+              "date": "2027-01-28",
+              "start": "13:30",
+              "end": "15:00",
+              "room": "PZ901"
+            },
+            {
+              "date": "2027-02-02",
+              "start": "10:00",
+              "end": "11:30",
+              "room": "PZ901"
+            },
+            {
+              "date": "2027-02-04",
+              "start": "13:30",
+              "end": "15:00",
+              "room": "PZ901"
+            }
+          ]
+        },
+        {
+          "state": "selected",
+          "unit_id": 92273,
+          "group_idx": 1,
+          "number": "INF-15620",
+          "title": "Advanced verification of software and systems (exercise)",
+          "course_type": "Übung",
+          "group_name": "Advanced verification of software and systems (exercise)",
+          "lecturers": [
+            "Prof. Dr. Stefan Leue"
+          ],
+          "appointments": [
+            {
+              "rhythm": "wöchentlich",
+              "start": "15:15",
+              "end": "16:45",
+              "first": "2026-10-27",
+              "last": "2027-02-02",
+              "room": "PZ901",
+              "lecturers": [
+                "Muqsit Azeem"
+              ],
+              "status": "exact",
+              "note": "",
+              "weekday": "Di",
+              "cancelled": [
+                "2026-12-29",
+                "2027-01-05"
+              ]
+            }
+          ],
+          "dates": [
+            {
+              "date": "2026-10-27",
+              "start": "15:15",
+              "end": "16:45",
+              "room": "PZ901"
+            },
+            {
+              "date": "2026-11-03",
+              "start": "15:15",
+              "end": "16:45",
+              "room": "PZ901"
+            },
+            {
+              "date": "2026-11-10",
+              "start": "15:15",
+              "end": "16:45",
+              "room": "PZ901"
+            },
+            {
+              "date": "2026-11-17",
+              "start": "15:15",
+              "end": "16:45",
+              "room": "PZ901"
+            },
+            {
+              "date": "2026-11-24",
+              "start": "15:15",
+              "end": "16:45",
+              "room": "PZ901"
+            },
+            {
+              "date": "2026-12-01",
+              "start": "15:15",
+              "end": "16:45",
+              "room": "PZ901"
+            },
+            {
+              "date": "2026-12-08",
+              "start": "15:15",
+              "end": "16:45",
+              "room": "PZ901"
+            },
+            {
+              "date": "2026-12-15",
+              "start": "15:15",
+              "end": "16:45",
+              "room": "PZ901"
+            },
+            {
+              "date": "2026-12-22",
+              "start": "15:15",
+              "end": "16:45",
+              "room": "PZ901"
+            },
+            {
+              "date": "2027-01-12",
+              "start": "15:15",
+              "end": "16:45",
+              "room": "PZ901"
+            },
+            {
+              "date": "2027-01-19",
+              "start": "15:15",
+              "end": "16:45",
+              "room": "PZ901"
+            },
+            {
+              "date": "2027-01-26",
+              "start": "15:15",
+              "end": "16:45",
+              "room": "PZ901"
+            },
+            {
+              "date": "2027-02-02",
+              "start": "15:15",
+              "end": "16:45",
+              "room": "PZ901"
+            }
+          ]
+        },
+        {
+          "state": "favorite",
+          "unit_id": 93715,
+          "group_idx": 1,
+          "number": "KEY-17140",
+          "title": "ADILT Data Philosophy",
+          "course_type": "Online-Seminar",
+          "group_name": "ADILT Data Philosophy",
+          "lecturers": [
+            "Dr. Ali Zolfagharian"
+          ],
+          "appointments": [
+            {
+              "rhythm": "wöchentlich",
+              "start": "16:15",
+              "end": "17:45",
+              "first": "2026-10-21",
+              "last": "2027-02-03",
+              "room": "",
+              "lecturers": [
+                "Dr. Ali Zolfagharian"
+              ],
+              "status": "exact",
+              "note": "",
+              "weekday": "Mi",
+              "cancelled": [
+                "2026-12-23",
+                "2026-12-30",
+                "2027-01-06"
+              ]
+            }
+          ],
+          "dates": [
+            {
+              "date": "2026-10-21",
+              "start": "16:15",
+              "end": "17:45",
+              "room": ""
+            },
+            {
+              "date": "2026-10-28",
+              "start": "16:15",
+              "end": "17:45",
+              "room": ""
+            },
+            {
+              "date": "2026-11-04",
+              "start": "16:15",
+              "end": "17:45",
+              "room": ""
+            },
+            {
+              "date": "2026-11-11",
+              "start": "16:15",
+              "end": "17:45",
+              "room": ""
+            },
+            {
+              "date": "2026-11-18",
+              "start": "16:15",
+              "end": "17:45",
+              "room": ""
+            },
+            {
+              "date": "2026-11-25",
+              "start": "16:15",
+              "end": "17:45",
+              "room": ""
+            },
+            {
+              "date": "2026-12-02",
+              "start": "16:15",
+              "end": "17:45",
+              "room": ""
+            },
+            {
+              "date": "2026-12-09",
+              "start": "16:15",
+              "end": "17:45",
+              "room": ""
+            },
+            {
+              "date": "2026-12-16",
+              "start": "16:15",
+              "end": "17:45",
+              "room": ""
+            },
+            {
+              "date": "2027-01-13",
+              "start": "16:15",
+              "end": "17:45",
+              "room": ""
+            },
+            {
+              "date": "2027-01-20",
+              "start": "16:15",
+              "end": "17:45",
+              "room": ""
+            },
+            {
+              "date": "2027-01-27",
+              "start": "16:15",
+              "end": "17:45",
+              "room": ""
+            },
+            {
+              "date": "2027-02-03",
+              "start": "16:15",
+              "end": "17:45",
+              "room": ""
+            }
+          ]
+        },
+        {
+          "state": "selected",
+          "unit_id": 106062,
+          "group_idx": 1,
+          "number": "INF-16850",
+          "title": "Bio-inspired mobile robotics",
+          "course_type": "Vorlesung",
+          "group_name": "Bio-inspired mobile robotics",
+          "lecturers": [
+            "Dr. Liang Li"
+          ],
+          "appointments": [
+            {
+              "rhythm": "wöchentlich",
+              "start": "13:30",
+              "end": "15:00",
+              "first": "2026-10-19",
+              "last": "2027-02-01",
+              "room": "ZT702",
+              "lecturers": [],
+              "status": "exact",
+              "note": "",
+              "weekday": "Mo",
+              "cancelled": [
+                "2026-12-28",
+                "2027-01-04"
+              ]
+            }
+          ],
+          "dates": [
+            {
+              "date": "2026-10-19",
+              "start": "13:30",
+              "end": "15:00",
+              "room": "ZT702"
+            },
+            {
+              "date": "2026-10-26",
+              "start": "13:30",
+              "end": "15:00",
+              "room": "ZT702"
+            },
+            {
+              "date": "2026-11-02",
+              "start": "13:30",
+              "end": "15:00",
+              "room": "ZT702"
+            },
+            {
+              "date": "2026-11-09",
+              "start": "13:30",
+              "end": "15:00",
+              "room": "ZT702"
+            },
+            {
+              "date": "2026-11-16",
+              "start": "13:30",
+              "end": "15:00",
+              "room": "ZT702"
+            },
+            {
+              "date": "2026-11-23",
+              "start": "13:30",
+              "end": "15:00",
+              "room": "ZT702"
+            },
+            {
+              "date": "2026-11-30",
+              "start": "13:30",
+              "end": "15:00",
+              "room": "ZT702"
+            },
+            {
+              "date": "2026-12-07",
+              "start": "13:30",
+              "end": "15:00",
+              "room": "ZT702"
+            },
+            {
+              "date": "2026-12-14",
+              "start": "13:30",
+              "end": "15:00",
+              "room": "ZT702"
+            },
+            {
+              "date": "2026-12-21",
+              "start": "13:30",
+              "end": "15:00",
+              "room": "ZT702"
+            },
+            {
+              "date": "2027-01-11",
+              "start": "13:30",
+              "end": "15:00",
+              "room": "ZT702"
+            },
+            {
+              "date": "2027-01-18",
+              "start": "13:30",
+              "end": "15:00",
+              "room": "ZT702"
+            },
+            {
+              "date": "2027-01-25",
+              "start": "13:30",
+              "end": "15:00",
+              "room": "ZT702"
+            },
+            {
+              "date": "2027-02-01",
+              "start": "13:30",
+              "end": "15:00",
+              "room": "ZT702"
+            }
+          ]
+        },
+        {
+          "state": "selected",
+          "unit_id": 106063,
+          "group_idx": 1,
+          "number": "INF-16840",
+          "title": "Bio-inspired mobile robotics (exercise)",
+          "course_type": "Übung",
+          "group_name": "Bio-inspired mobile robotics (exercise)",
+          "lecturers": [
+            "Dr. Liang Li"
+          ],
+          "appointments": [
+            {
+              "rhythm": "wöchentlich",
+              "start": "13:30",
+              "end": "15:00",
+              "first": "2026-10-21",
+              "last": "2027-02-03",
+              "room": "ZT702",
+              "lecturers": [],
+              "status": "exact",
+              "note": "",
+              "weekday": "Mi",
+              "cancelled": [
+                "2026-12-23",
+                "2026-12-30",
+                "2027-01-06"
+              ]
+            }
+          ],
+          "dates": [
+            {
+              "date": "2026-10-21",
+              "start": "13:30",
+              "end": "15:00",
+              "room": "ZT702"
+            },
+            {
+              "date": "2026-10-28",
+              "start": "13:30",
+              "end": "15:00",
+              "room": "ZT702"
+            },
+            {
+              "date": "2026-11-04",
+              "start": "13:30",
+              "end": "15:00",
+              "room": "ZT702"
+            },
+            {
+              "date": "2026-11-11",
+              "start": "13:30",
+              "end": "15:00",
+              "room": "ZT702"
+            },
+            {
+              "date": "2026-11-18",
+              "start": "13:30",
+              "end": "15:00",
+              "room": "ZT702"
+            },
+            {
+              "date": "2026-11-25",
+              "start": "13:30",
+              "end": "15:00",
+              "room": "ZT702"
+            },
+            {
+              "date": "2026-12-02",
+              "start": "13:30",
+              "end": "15:00",
+              "room": "ZT702"
+            },
+            {
+              "date": "2026-12-09",
+              "start": "13:30",
+              "end": "15:00",
+              "room": "ZT702"
+            },
+            {
+              "date": "2026-12-16",
+              "start": "13:30",
+              "end": "15:00",
+              "room": "ZT702"
+            },
+            {
+              "date": "2027-01-13",
+              "start": "13:30",
+              "end": "15:00",
+              "room": "ZT702"
+            },
+            {
+              "date": "2027-01-20",
+              "start": "13:30",
+              "end": "15:00",
+              "room": "ZT702"
+            },
+            {
+              "date": "2027-01-27",
+              "start": "13:30",
+              "end": "15:00",
+              "room": "ZT702"
+            },
+            {
+              "date": "2027-02-03",
+              "start": "13:30",
+              "end": "15:00",
+              "room": "ZT702"
+            }
+          ]
+        },
+        {
+          "state": "selected",
+          "unit_id": 112855,
+          "group_idx": 1,
+          "number": "PSY-18790",
+          "title": "TK-MentalStrategien",
+          "course_type": "Workshop",
+          "group_name": "TK-MentalStrategien",
+          "lecturers": [
+            "Serpil Hummel",
+            "Dr. Anna Becker"
+          ],
+          "appointments": [
+            {
+              "rhythm": "wöchentlich",
+              "start": "09:00",
+              "end": "11:45",
+              "first": "2026-11-05",
+              "last": "2026-12-10",
+              "room": "",
+              "lecturers": [
+                "Dr. Anna Becker"
+              ],
+              "status": "exact",
+              "note": "Raum: H3036",
+              "weekday": "Do",
+              "cancelled": []
+            },
+            {
+              "rhythm": "Einzeltermin",
+              "start": "09:00",
+              "end": "16:45",
+              "first": "2026-11-14",
+              "last": "2026-11-14",
+              "room": "",
+              "lecturers": [
+                "Dr. Anna Becker"
+              ],
+              "status": "exact",
+              "note": "Raum: H3036",
+              "weekday": "Sa",
+              "cancelled": []
+            }
+          ],
+          "dates": [
+            {
+              "date": "2026-11-05",
+              "start": "09:00",
+              "end": "11:45",
+              "room": ""
+            },
+            {
+              "date": "2026-11-12",
+              "start": "09:00",
+              "end": "11:45",
+              "room": ""
+            },
+            {
+              "date": "2026-11-14",
+              "start": "09:00",
+              "end": "16:45",
+              "room": ""
+            },
+            {
+              "date": "2026-11-19",
+              "start": "09:00",
+              "end": "11:45",
+              "room": ""
+            },
+            {
+              "date": "2026-11-26",
+              "start": "09:00",
+              "end": "11:45",
+              "room": ""
+            },
+            {
+              "date": "2026-12-03",
+              "start": "09:00",
+              "end": "11:45",
+              "room": ""
+            },
+            {
+              "date": "2026-12-10",
+              "start": "09:00",
+              "end": "11:45",
+              "room": ""
+            }
+          ]
+        },
+        {
+          "state": "selected",
+          "unit_id": 121618,
+          "group_idx": 1,
+          "number": "INT-17950",
+          "title": "Qigong – Bewegung, Atem und Achtsamkeit",
+          "course_type": "Workshop",
+          "group_name": "Qigong – Bewegung, Atem und Achtsamkeit",
+          "lecturers": [
+            "Serpil Hummel"
+          ],
+          "appointments": [
+            {
+              "rhythm": "14-täglich",
+              "start": "12:00",
+              "end": "13:00",
+              "first": "2026-10-26",
+              "last": "2027-01-04",
+              "room": "",
+              "lecturers": [],
+              "status": "exact",
+              "note": "Raum: BG335 (innerhalb der Bibliothek)",
+              "weekday": "Mo",
+              "cancelled": []
+            },
+            {
+              "rhythm": "14-täglich",
+              "start": "12:00",
+              "end": "13:00",
+              "first": "2026-11-02",
+              "last": "2026-12-14",
+              "room": "",
+              "lecturers": [],
+              "status": "exact",
+              "note": "Raum: CIP Pool G310",
+              "weekday": "Mo",
+              "cancelled": []
+            },
+            {
+              "rhythm": "wöchentlich",
+              "start": "12:00",
+              "end": "13:00",
+              "first": "2027-01-18",
+              "last": "2027-02-01",
+              "room": "",
+              "lecturers": [],
+              "status": "exact",
+              "note": "Raum: BG335 (innerhalb der Bibliothek)",
+              "weekday": "Mo",
+              "cancelled": []
+            }
+          ],
+          "dates": [
+            {
+              "date": "2026-10-26",
+              "start": "12:00",
+              "end": "13:00",
+              "room": ""
+            },
+            {
+              "date": "2026-11-02",
+              "start": "12:00",
+              "end": "13:00",
+              "room": ""
+            },
+            {
+              "date": "2026-11-09",
+              "start": "12:00",
+              "end": "13:00",
+              "room": ""
+            },
+            {
+              "date": "2026-11-16",
+              "start": "12:00",
+              "end": "13:00",
+              "room": ""
+            },
+            {
+              "date": "2026-11-23",
+              "start": "12:00",
+              "end": "13:00",
+              "room": ""
+            },
+            {
+              "date": "2026-11-30",
+              "start": "12:00",
+              "end": "13:00",
+              "room": ""
+            },
+            {
+              "date": "2026-12-07",
+              "start": "12:00",
+              "end": "13:00",
+              "room": ""
+            },
+            {
+              "date": "2026-12-14",
+              "start": "12:00",
+              "end": "13:00",
+              "room": ""
+            },
+            {
+              "date": "2026-12-21",
+              "start": "12:00",
+              "end": "13:00",
+              "room": ""
+            },
+            {
+              "date": "2027-01-04",
+              "start": "12:00",
+              "end": "13:00",
+              "room": ""
+            },
+            {
+              "date": "2027-01-18",
+              "start": "12:00",
+              "end": "13:00",
+              "room": ""
+            },
+            {
+              "date": "2027-01-25",
+              "start": "12:00",
+              "end": "13:00",
+              "room": ""
+            },
+            {
+              "date": "2027-02-01",
+              "start": "12:00",
+              "end": "13:00",
+              "room": ""
+            }
+          ]
+        }
+      ],
+      "blockers": [
+        {
+          "id": 2,
+          "period_id": 797,
+          "title": "Vernetzung autonomer Systeme (ex)",
+          "kind": "weekly",
+          "weekday": 0,
+          "start_time": "09:45",
+          "end_time": "11:15",
+          "first_date": "2026-10-01",
+          "last_date": "2027-04-01"
+        },
+        {
+          "id": 3,
+          "period_id": 797,
+          "title": "Vernetzung autonomer Systeme",
+          "kind": "weekly",
+          "weekday": 2,
+          "start_time": "09:45",
+          "end_time": "11:15",
+          "first_date": "2026-10-01",
+          "last_date": "2027-04-01"
+        },
+        {
+          "id": 4,
+          "period_id": 797,
+          "title": "Schwimmen - Techniktraining",
+          "kind": "weekly",
+          "weekday": 1,
+          "start_time": "18:40",
+          "end_time": "19:40",
+          "first_date": "2026-10-20",
+          "last_date": "2027-02-16"
+        },
+        {
+          "id": 5,
+          "period_id": 797,
+          "title": "Schwimmen - Techniktraining",
+          "kind": "weekly",
+          "weekday": 3,
+          "start_time": "18:40",
+          "end_time": "19:40",
+          "first_date": "2026-10-22",
+          "last_date": "2027-02-18"
+        }
+      ]
+    }
+  ]
+}

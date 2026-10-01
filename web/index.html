@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Stundenplaner</title>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<header>
+  <h1>Stundenplaner</h1>
+  <select id="period"></select>
+  <span id="semwin" class="muted"></span>
+  <span class="spacer"></span>
+  <a href="/api/export" download>plan.json</a>
+  <a href="/api/ics" download id="icslink">Kalender (.ics)</a>
+</header>
+
+<main>
+  <section id="left">
+    <div class="searchbar">
+      <input id="q" type="search" placeholder="Suche: BIO-  ·  Analysis  ·  MAT-10  …" autocomplete="off">
+      <select id="ctype"><option value="">alle Arten</option></select>
+      <label class="chk"><input type="checkbox" id="onlyfree"> nur ohne Überschneidung</label>
+      <span id="searchinfo" class="muted"></span>
+    </div>
+    <div id="results"></div>
+  </section>
+
+  <section id="right">
+    <nav class="tabs">
+      <button data-tab="week" class="active">Woche</button>
+      <button data-tab="plan">Mein Plan</button>
+      <button data-tab="block">Blocker</button>
+    </nav>
+
+    <div id="tab-week" class="tab active">
+      <div class="weeknav">
+        <button id="prevw">‹</button>
+        <span id="weeklabel"></span>
+        <button id="nextw">›</button>
+        <input type="text" id="jump" inputmode="numeric" placeholder="TT.MM.JJJJ" size="10">
+      </div>
+      <div id="grid"></div>
+    </div>
+
+    <div id="tab-plan" class="tab">
+      <div class="exportbar">
+        <b>Export</b>
+        <label class="chk"><input type="checkbox" class="icswhat" value="selected" checked> Belegt</label>
+        <label class="chk"><input type="checkbox" class="icswhat" value="favorite"> Favoriten</label>
+        <label class="chk"><input type="checkbox" class="icswhat" value="blockers" checked> Blocker</label>
+        <a id="icsdl" href="/api/ics" download>.ics herunterladen</a>
+        <a href="/api/export" download>plan.json</a>
+        <span id="icsinfo" class="muted"></span>
+      </div>
+      <div id="planlist"></div>
+    </div>
+
+    <div id="tab-block" class="tab">
+      <form id="blockform">
+        <input type="hidden" name="id">
+        <h3 id="blockhead">Zeit blockieren</h3>
+        <p class="muted">Pfadfinder, Job, Sport – alles, was den Slot belegt.
+        Blocker zählen genauso wie belegte Kurse.</p>
+        <label>Titel <input name="title" required placeholder="Pfadfinder Gruppenstunde"></label>
+        <label>Art
+          <select name="kind">
+            <option value="weekly">wöchentlich</option>
+            <option value="span">Zeitraum am Stück (z.B. Lager)</option>
+          </select>
+        </label>
+        <label class="wd">Wochentag
+          <select name="weekday">
+            <option value="0">Montag</option><option value="1">Dienstag</option>
+            <option value="2">Mittwoch</option><option value="3">Donnerstag</option>
+            <option value="4">Freitag</option><option value="5">Samstag</option>
+            <option value="6">Sonntag</option>
+          </select>
+        </label>
+        <div class="row">
+          <label>von <input name="start_time" value="18:00" placeholder="18:00" pattern="[0-9]{1,2}[:.]?[0-9]{2}" inputmode="numeric" required></label>
+          <label>bis <input name="end_time" value="20:00" placeholder="20:00" pattern="[0-9]{1,2}[:.]?[0-9]{2}" inputmode="numeric" required></label>
+        </div>
+        <div class="row">
+          <label>ab <input name="first_date" placeholder="TT.MM.JJJJ" inputmode="numeric"></label>
+          <label>bis <input name="last_date" placeholder="TT.MM.JJJJ" inputmode="numeric"></label>
+        </div>
+        <div class="row">
+          <button type="submit" id="blocksave">Blocker anlegen</button>
+          <button type="button" id="blockcancel" hidden>Abbrechen</button>
+        </div>
+      </form>
+      <div id="blocklist"></div>
+    </div>
+  </section>
+</main>
+<script src="/app.js"></script>
+</body>
+</html>

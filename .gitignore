@@ -1,0 +1,11 @@
+cache/
+*.sqlite3
+*.sqlite3-wal
+*.sqlite3-shm
+__pycache__/
+*.pyc
+export/
+plan.sqlite3
+
+# Logs langlaufender Crawls
+*.log
