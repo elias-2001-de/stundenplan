@@ -142,6 +142,7 @@ persönlichen Studienplaner/Prüfungsanmeldung — dafür ist dieses Werkzeug ni
 
 ```bash
 unzip stundenplan.sqlite3.zip   # mitgelieferte Kurs-DB entpacken (einmalig)
+# oder: gunzip -k stundenplan.sqlite3.gz
 python3 app.py          # http://127.0.0.1:8765  (nur Standardbibliothek)
 ```
 
