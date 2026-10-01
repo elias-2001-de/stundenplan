@@ -9,3 +9,4 @@ plan.sqlite3
 
 # Logs langlaufender Crawls
 *.log
+plan.json
