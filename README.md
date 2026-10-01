@@ -1,150 +1,20 @@
-# Stundenplan Uni Konstanz — Datenbeschaffung aus ZEuS
+# Stundenplaner Uni Konstanz
 
-ZEuS (`zeus.uni-konstanz.de`) läuft auf **HISinOne**. Eine öffentliche API gibt es
-nicht (siehe [RESEARCH.md](RESEARCH.md)), aber das komplette Vorlesungsverzeichnis
-ist ohne Login über GET-Permalinks erreichbar. Dieses Paket crawlt es und legt
-Veranstaltungen, Parallelgruppen und Termine in SQLite ab.
+Stundenplan fürs Semester zusammenklicken: Kurse suchen, Parallelgruppen
+belegen, Überschneidungen sehen, als Kalender (`.ics`) exportieren. Das komplette
+Vorlesungsverzeichnis aus ZEuS (19 Semester, ~40.000 Veranstaltungen) liegt als
+fertige Datenbank bei – kein Login, kein Crawlen nötig.
 
-## Installation
-
-```bash
-pip install -r requirements.txt
-```
-
-## Benutzung
+## Schnellstart
 
 ```bash
-# Welche Semester gibt es? (periodId brauchst du für alles Weitere)
-python -m zeus.cli semesters
-
-# Komplettes Vorlesungsverzeichnis eines Semesters einlesen
-python -m zeus.cli crawl --period 797
-
-# Datenbestand ansehen
-python -m zeus.cli stats --period 797
-
-# Der VV-Baum ist unvollständig: Veranstaltungen ohne Studiengangs-Zuordnung
-# fehlen dort. Dieser Schritt findet sie über die Suchmaske und lädt sie nach.
-python -m zeus.cli discover --period 797
-
-# Alle 19 Semester einlesen (rein über die Suche, ohne Baum – dauert Stunden)
-python -m zeus.cli discover --all
-
-# Einzelne ältere Semester
-python -m zeus.cli discover --periods 794 796
-
-# Registerkarte "Inhalte" nachladen: Beschreibung, Lernziele, Literatur,
-# ECTS/Prüfungsnummer. Eigener Lauf, weil er zwei Requests je Veranstaltung
-# kostet. Das Rate-Limit ist global, mehr Worker beschleunigen nichts: rund
-# 1 s je Veranstaltung, also ~30 min pro Semester und ~10 h für alle 19.
-# Wiederaufnehmbar – abbrechen und neu starten macht dort weiter, wo es aufhörte.
-python -m zeus.cli contents --period 797 --dry-run   # nur den Aufwand zeigen
-python -m zeus.cli contents --period 797
-python -m zeus.cli contents --all
-
-# ZEuS liefert die Registerkarte gelegentlich unvollständig (einzelne Abschnitte
-# fehlen, ohne dass die Antwort als fehlerhaft erkennbar wäre). Der Lauf nimmt
-# nur auf, was noch gar nichts hat – eine kurz geratene Veranstaltung holt man
-# gezielt nach:
-python -m zeus.cli contents --period 797 --units 106062 --refetch
-
-# Alles noch einmal aus dem HTML-Cache parsen (kein Netzwerk, z.B. nach Parser-Fix)
-python -m zeus.cli reparse --period 797
-
-# Gegenprobe: stimmt ein Tag aus "Tagesaktuelle Veranstaltungen" mit dem Bestand überein?
-python -m zeus.cli verify 2026-11-10 --period 797
-
-# Alle Termine eines Tages roh als JSON
-python -m zeus.cli daily 2026-11-10
-
-# Termine exportieren
-python -m zeus.cli export --period 797 --format json --out export/ws2627.json
-python -m zeus.cli export --period 797 --format csv  --out export/ws2627.csv
-python -m zeus.cli export --period 797 --format ics  --out export/ws2627.ics
-
-# Nur die eigenen Kurse, nur sichere Termine
-python -m zeus.cli export --period 797 --query "MAT-" --only-exact \
-    --format ics --out export/mathe.ics
-python -m zeus.cli export --period 797 --units 20651 61924 --format json
+unzip stundenplan.sqlite3.zip   # oder: gunzip -k stundenplan.sqlite3.gz
+python3 app.py                  # → http://127.0.0.1:8765
 ```
 
-### Zwei Wege zu den Daten
+Braucht nur Python 3 (Standardbibliothek), kein `pip install`.
 
-| Befehl | findet | Kosten |
-|---|---|---|
-| `crawl` | Veranstaltungen **mit** Studiengangs-Zuordnung (+ den Baum selbst) | ~1 h pro Semester |
-| `discover` | **alle** Veranstaltungen des Semesters, ohne Baum | ~10 min pro Semester |
-
-`discover` zerlegt das Semester nach Veranstaltungsart (78 Werte inkl.
-"(nicht gefüllt)") – das ist eine echte Partition, keine Stichprobe. Nur
-`crawl` liefert zusätzlich `catalog_nodes`, also die Zuordnung
-Studiengang → Veranstaltung.
-
-**Wichtig: `crawl` allein reicht nicht.** Der Baum des Vorlesungsverzeichnisses
-enthält nur Veranstaltungen, die einem Studiengang zugeordnet sind; eine
-Stichprobe gegen die Tagesliste zeigte rund 13 % Fehlende. `discover` schließt
-die Lücke über die Veranstaltungssuche. Reihenfolge also: `crawl`, dann
-`discover`, dann `verify` zur Kontrolle.
-
-Der Crawl ist **wiederaufnehmbar**: jede abgerufene Seite landet im HTML-Cache
-(`--cache`, Default `cache/`), bereits gespeicherte Veranstaltungen werden
-übersprungen (`--refetch` erzwingt das Neuladen).
-
-## Datenmodell
-
-```
-courses        Element (unit_id + period_id): Titel, Nummer, Fachbereich und
- │             element_type = "Veranstaltung" | "Modul" | "Prüfung".
- │             contents = Registerkarte "Inhalte" als JSON (NULL = nie geholt,
- │             kommt aus `zeus.cli contents`; crawl/reparse lassen sie stehen).
- │             Nur Veranstaltungen/Prüfungen haben Termine; Module sind
- │             Gliederungselemente des Studiengangs.
- └ groups      Parallelgruppen (und getrennt davon Prüfungstermin-Gruppen)
-    └ appointments   Terminmuster: Rhythmus, Wochentag, Uhrzeit, Zeitraum, Raum,
-    │                Dozent*innen, Ausfalltermine
-    └ occurrences    daraus ausgerechnete Einzeltermine (Datum + Uhrzeit + Raum)
-catalog_nodes  Baum des Vorlesungsverzeichnisses; verbindet Studiengang-Pfade
-               mit unit_id (n:m — dieselbe Veranstaltung hängt in mehreren Pfaden)
-```
-
-Die planbare Einheit ist die **Parallelgruppe**, nicht die Veranstaltung: eine
-Vorlesung kann mehrere Gruppen zu verschiedenen Zeiten in verschiedenen Räumen haben.
-
-`appointments.status` sagt, wie zuverlässig die Einzeltermine sind:
-
-| Status    | Bedeutung                                                              |
-|-----------|------------------------------------------------------------------------|
-| `exact`   | Rhythmus verstanden (Einzeltermin, wöchentlich, 14-täglich, …)          |
-| `span`    | Blockveranstaltung o.ä. — nur der Zeitraum ist bekannt, ein Eintrag     |
-| `unknown` | Muster nicht interpretierbar; Rohdaten stehen in `appointments`         |
-
-## Tests
-
-```bash
-python -m unittest discover -s tests
-```
-
-Die Tests laufen gegen gespeicherte ZEuS-Seiten unter `tests/fixtures/`,
-also ohne Netzwerkzugriff.
-
-## Fairness gegenüber dem Server
-
-Default 0,4–0,5 s Pause zwischen Requests, 3 Worker, jeder mit eigener Session
-(Spring-Webflow-State ist nicht thread-sicher), alles gecacht. Bitte nicht
-hochdrehen — ZEuS ist ein Produktivsystem der Universität.
-
-## Kein Login nötig
-
-Alles hier Genutzte ist öffentlich. Zugangsdaten bräuchte man nur für den
-persönlichen Studienplaner/Prüfungsanmeldung — dafür ist dieses Werkzeug nicht da.
-
-## Stundenplaner (Web-App)
-
-```bash
-unzip stundenplan.sqlite3.zip   # mitgelieferte Kurs-DB entpacken (einmalig)
-# oder: gunzip -k stundenplan.sqlite3.gz
-python3 app.py          # http://127.0.0.1:8765  (nur Standardbibliothek)
-```
+## Die Web-App
 
 Liest `stundenplan.sqlite3` **read-only**, geht nie ins Netz und legt den
 eigenen Plan in `plan.sqlite3` ab; nach jeder Änderung wird zusätzlich
@@ -223,3 +93,143 @@ machen (Schwelle: `SPAN_MAX_DAYS` in `app.py`).
 
 Der Plan ist an `(unit_id, period_id, Parallelgruppen-Index)` gebunden, nicht an
 die `groups.id` – die wird bei `reparse`/`crawl` neu vergeben.
+
+---
+
+## Daten selbst aktualisieren (CLI, optional)
+
+Nur nötig, wenn die mitgelieferte DB veraltet ist oder ein neues Semester
+dazukommen soll. ZEuS (`zeus.uni-konstanz.de`) läuft auf **HISinOne**. Eine
+öffentliche API gibt es nicht (siehe [RESEARCH.md](RESEARCH.md)), aber das
+komplette Vorlesungsverzeichnis ist ohne Login über GET-Permalinks erreichbar.
+Der Crawler legt Veranstaltungen, Parallelgruppen und Termine in
+`stundenplan.sqlite3` ab.
+
+```bash
+pip install -r requirements.txt
+```
+
+```bash
+# Welche Semester gibt es? (periodId brauchst du für alles Weitere)
+python -m zeus.cli semesters
+
+# Komplettes Vorlesungsverzeichnis eines Semesters einlesen
+python -m zeus.cli crawl --period 797
+
+# Datenbestand ansehen
+python -m zeus.cli stats --period 797
+
+# Der VV-Baum ist unvollständig: Veranstaltungen ohne Studiengangs-Zuordnung
+# fehlen dort. Dieser Schritt findet sie über die Suchmaske und lädt sie nach.
+python -m zeus.cli discover --period 797
+
+# Alle 19 Semester einlesen (rein über die Suche, ohne Baum – dauert Stunden)
+python -m zeus.cli discover --all
+
+# Einzelne ältere Semester
+python -m zeus.cli discover --periods 794 796
+
+# Registerkarte "Inhalte" nachladen: Beschreibung, Lernziele, Literatur,
+# ECTS/Prüfungsnummer. Eigener Lauf, weil er zwei Requests je Veranstaltung
+# kostet. Das Rate-Limit ist global, mehr Worker beschleunigen nichts: rund
+# 1 s je Veranstaltung, also ~30 min pro Semester und ~10 h für alle 19.
+# Wiederaufnehmbar – abbrechen und neu starten macht dort weiter, wo es aufhörte.
+python -m zeus.cli contents --period 797 --dry-run   # nur den Aufwand zeigen
+python -m zeus.cli contents --period 797
+python -m zeus.cli contents --all
+
+# ZEuS liefert die Registerkarte gelegentlich unvollständig (einzelne Abschnitte
+# fehlen, ohne dass die Antwort als fehlerhaft erkennbar wäre). Der Lauf nimmt
+# nur auf, was noch gar nichts hat – eine kurz geratene Veranstaltung holt man
+# gezielt nach:
+python -m zeus.cli contents --period 797 --units 106062 --refetch
+
+# Alles noch einmal aus dem HTML-Cache parsen (kein Netzwerk, z.B. nach Parser-Fix)
+python -m zeus.cli reparse --period 797
+
+# Gegenprobe: stimmt ein Tag aus "Tagesaktuelle Veranstaltungen" mit dem Bestand überein?
+python -m zeus.cli verify 2026-11-10 --period 797
+
+# Alle Termine eines Tages roh als JSON
+python -m zeus.cli daily 2026-11-10
+
+# Termine exportieren
+python -m zeus.cli export --period 797 --format json --out export/ws2627.json
+python -m zeus.cli export --period 797 --format csv  --out export/ws2627.csv
+python -m zeus.cli export --period 797 --format ics  --out export/ws2627.ics
+
+# Nur die eigenen Kurse, nur sichere Termine
+python -m zeus.cli export --period 797 --query "MAT-" --only-exact \
+    --format ics --out export/mathe.ics
+python -m zeus.cli export --period 797 --units 20651 61924 --format json
+```
+
+### Zwei Wege zu den Daten
+
+| Befehl | findet | Kosten |
+|---|---|---|
+| `crawl` | Veranstaltungen **mit** Studiengangs-Zuordnung (+ den Baum selbst) | ~1 h pro Semester |
+| `discover` | **alle** Veranstaltungen des Semesters, ohne Baum | ~10 min pro Semester |
+
+`discover` zerlegt das Semester nach Veranstaltungsart (78 Werte inkl.
+"(nicht gefüllt)") – das ist eine echte Partition, keine Stichprobe. Nur
+`crawl` liefert zusätzlich `catalog_nodes`, also die Zuordnung
+Studiengang → Veranstaltung.
+
+**Wichtig: `crawl` allein reicht nicht.** Der Baum des Vorlesungsverzeichnisses
+enthält nur Veranstaltungen, die einem Studiengang zugeordnet sind; eine
+Stichprobe gegen die Tagesliste zeigte rund 13 % Fehlende. `discover` schließt
+die Lücke über die Veranstaltungssuche. Reihenfolge also: `crawl`, dann
+`discover`, dann `verify` zur Kontrolle.
+
+Der Crawl ist **wiederaufnehmbar**: jede abgerufene Seite landet im HTML-Cache
+(`--cache`, Default `cache/`), bereits gespeicherte Veranstaltungen werden
+übersprungen (`--refetch` erzwingt das Neuladen).
+
+### Datenmodell
+
+```
+courses        Element (unit_id + period_id): Titel, Nummer, Fachbereich und
+ │             element_type = "Veranstaltung" | "Modul" | "Prüfung".
+ │             contents = Registerkarte "Inhalte" als JSON (NULL = nie geholt,
+ │             kommt aus `zeus.cli contents`; crawl/reparse lassen sie stehen).
+ │             Nur Veranstaltungen/Prüfungen haben Termine; Module sind
+ │             Gliederungselemente des Studiengangs.
+ └ groups      Parallelgruppen (und getrennt davon Prüfungstermin-Gruppen)
+    └ appointments   Terminmuster: Rhythmus, Wochentag, Uhrzeit, Zeitraum, Raum,
+    │                Dozent*innen, Ausfalltermine
+    └ occurrences    daraus ausgerechnete Einzeltermine (Datum + Uhrzeit + Raum)
+catalog_nodes  Baum des Vorlesungsverzeichnisses; verbindet Studiengang-Pfade
+               mit unit_id (n:m — dieselbe Veranstaltung hängt in mehreren Pfaden)
+```
+
+Die planbare Einheit ist die **Parallelgruppe**, nicht die Veranstaltung: eine
+Vorlesung kann mehrere Gruppen zu verschiedenen Zeiten in verschiedenen Räumen haben.
+
+`appointments.status` sagt, wie zuverlässig die Einzeltermine sind:
+
+| Status    | Bedeutung                                                              |
+|-----------|------------------------------------------------------------------------|
+| `exact`   | Rhythmus verstanden (Einzeltermin, wöchentlich, 14-täglich, …)          |
+| `span`    | Blockveranstaltung o.ä. — nur der Zeitraum ist bekannt, ein Eintrag     |
+| `unknown` | Muster nicht interpretierbar; Rohdaten stehen in `appointments`         |
+
+### Tests
+
+```bash
+python -m unittest discover -s tests
+```
+
+Die Tests laufen gegen gespeicherte ZEuS-Seiten unter `tests/fixtures/`,
+also ohne Netzwerkzugriff.
+
+### Fairness gegenüber dem Server
+
+Default 0,4–0,5 s Pause zwischen Requests, 3 Worker, jeder mit eigener Session
+(Spring-Webflow-State ist nicht thread-sicher), alles gecacht. Bitte nicht
+hochdrehen — ZEuS ist ein Produktivsystem der Universität.
+
+### Kein Login nötig
+
+Alles hier Genutzte ist öffentlich. Zugangsdaten bräuchte man nur für den
+persönlichen Studienplaner/Prüfungsanmeldung — dafür ist dieses Werkzeug nicht da.
